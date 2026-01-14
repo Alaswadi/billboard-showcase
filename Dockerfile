@@ -11,7 +11,7 @@ COPY package.json pnpm-lock.yaml ./
 COPY patches ./patches/
 
 # Install dependencies including dev dependencies for building
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 # Copy source code
 COPY . .
@@ -36,7 +36,7 @@ COPY --from=builder /app/package.json ./
 # Install only production dependencies
 # We use npm here to avoid installing pnpm in the final image if space is a concern, 
 # but pnpm is better for consistency. Let's stick with pnpm for lockfile consistency.
-RUN npm install -g pnpm && pnpm install --prod --frozen-lockfile
+RUN npm install -g pnpm && pnpm install --prod --no-frozen-lockfile
 
 # Expose the port the app runs on
 EXPOSE 3311
