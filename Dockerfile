@@ -31,7 +31,8 @@ ENV PORT=3311
 
 # Copy built assets and server from builder stage
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./
+COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
+COPY --from=builder /app/patches ./patches
 
 # Install only production dependencies
 # We use npm here to avoid installing pnpm in the final image if space is a concern, 
