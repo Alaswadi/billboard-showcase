@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3311:3311"
+    environment:
+      - NODE_ENV=production
+      - PORT=3311
+    restart: always

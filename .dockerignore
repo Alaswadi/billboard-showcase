@@ -1,0 +1,15 @@
+node_modules
+dist
+.git
+.env
+.prettierrc
+.prettierignore
+README.md
+todo.md
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+components.json
+pnpm-lock.yaml
+*.log
+.DS_Store
